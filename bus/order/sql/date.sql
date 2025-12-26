@@ -1,0 +1,1 @@
+SELECT T_ID FROM timesheet WHERE T_DATE = (%s)

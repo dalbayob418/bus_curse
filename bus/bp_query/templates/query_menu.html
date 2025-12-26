@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Запросы к базе троллейбусного парка</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<center>
+    <h2>Выберите запрос</h2>
+    <ol>
+        <li><a href="{{ url_for('bp_query.query_form', sql_file='driver_by_name.sql') }}">Поиск водителя по части ФИО</a></li>
+        <li><a href="{{ url_for('bp_query.query_form', sql_file='trolley_by_number.sql') }}">Поиск троллейбуса по бортовому номеру</a></li>
+        <li><a href="{{ url_for('bp_query.query_form', sql_file='drivers_by_recruitment_year.sql') }}">Водители, принятые в указанном году</a></li>
+    </ol>
+    <p><a href="{{ url_for('index') }}">← На главную</a></p>
+</center>
+</body>
+</html>

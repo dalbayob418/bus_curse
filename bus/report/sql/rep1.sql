@@ -1,0 +1,1 @@
+SELECT D_ID, D_NAME, REP_HOURS FROM `report` JOIN drivers using(D_ID) WHERE REP_MONTH = (%s) AND REP_YEAR = (%s)

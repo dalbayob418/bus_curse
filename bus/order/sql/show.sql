@@ -1,0 +1,1 @@
+SELECT D_NAME,R_ID FROM timesheet JOIN drivers using(D_ID) WHERE T_DATE = (%s)

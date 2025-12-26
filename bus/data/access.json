@@ -1,0 +1,12 @@
+{
+  "manager": [
+    "bp_auth",
+    "bp_query"
+  ],
+  "admin": [
+    "bp_auth",
+    "bp_query",
+    "blueprint_report",
+    "blueprint_order"
+  ]
+}

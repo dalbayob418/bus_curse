@@ -1,0 +1,1 @@
+SELECT D_ID, D_NAME FROM drivers

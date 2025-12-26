@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order_saved</title>
+</head>
+<body>
+        <center>
+            <h2>
+                Расписание на {{date}} сформировано!
+            </h2>
+            {% if results %}
+            <table border="1">
+                <tr class=tab_title>
+                    <td>Водитель</td>
+                    <td>Маршрут</td>
+                </tr>
+                {% for row in results %}
+                <tr class="tab_title">
+                    {% for item in row %}
+                    <td>{{ item }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+            <br><br>
+            <a href="{{ url_for('blueprint_order.date_index') }}" method="get">Сформировать новое расписание</a>
+            <br><br>
+            <a href="{{ url_for('blueprint_order.exit') }}">Вернуться в меню</a>
+        </center>
+</body>
+</html>

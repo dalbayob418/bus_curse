@@ -1,0 +1,1 @@
+SELECT product_id, product_name, product_cost, product_measurement FROM product WHERE product_category = (%s)

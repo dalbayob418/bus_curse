@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Результат</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+</head>
+<body>
+    <center>
+        <h2>{{ title }}</h2>
+
+        {% if items and items|length > 0 %}
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr class="tab_title">
+                {% for col in columns %}
+                <th>{{ col }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in items %}
+            <tr>
+                {% for col in columns %}
+                <td>{{ row[col] if row is mapping else row[loop.index0] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>Ничего не найдено</p>
+        {% endif %}
+
+        <p><a href="{{ url_for('bp_query.product_handle') }}">← К списку запросов</a></p>
+    </center>
+</body>
+</html>

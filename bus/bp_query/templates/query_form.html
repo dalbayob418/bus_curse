@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<center>
+    <h2>{{ title }}</h2>
+    <form action="{{ url_for('bp_query.query_result') }}" method="post">
+        <input type="hidden" name="sql_file" value="{{ sql_file }}">
+        <input type="text" name="param" placeholder="{{ placeholder }}" required style="width:300px; padding:10px; font-size:16px;">
+        <br><br>
+        <input type="submit" value="Выполнить">
+    </form>
+    <p><a href="{{ url_for('bp_query.product_handle') }}">← К списку запросов</a></p>
+</center>
+</body>
+</html>

@@ -1,0 +1,1 @@
+INSERT INTO timesheet(T_DATE, D_ID, R_ID) VALUES(%(date)s, %(D_ID)s, %(R_ID)s)

@@ -1,0 +1,38 @@
+{% macro render_item(item, key,routes,show_form_add=False, show_form_sub=False) %}
+
+<div style="border-style: solid; border-color: black; margin: 5px">
+    <p>
+        <span>Водитель</span>
+        <span style="color: blue">{{item['D_NAME']}}</span>
+
+    </p>
+
+    {% if show_form_add and not item['free']%}
+    <div>
+        <form action="{{ url_for('blueprint_order.add_index') }}" method="POST">
+            <label for="R_ID">Маршрут</label>
+            <select id="R_ID" name="R_ID">
+            {% for route in routes %}
+            <option value={{route['R_ID']}}>r: {{route['R_ID']}}</option>
+            {% endfor %}
+            </select>
+            <input type="hidden" name="D_ID" value={{item['D_ID']}}>
+            <input style="color:red" name="action" type="submit" value="Добавить">
+        </form>
+    </div>
+    {% endif %}
+
+    {% if show_form_sub %}
+    <div>
+        <p>
+        <span>Маршрут</span>
+        <span style="color: blue">{{item['R_ID']}}</span>
+        </p>
+        <form action="{{ url_for('blueprint_order.add_index') }}" method="POST">
+            <input type="hidden" name="D_ID" value={{key}}>
+            <input style="color:red" name="action" type="submit" value="Удалить">
+        </form>
+    </div>
+    {% endif %}
+</div>
+{% endmacro %}

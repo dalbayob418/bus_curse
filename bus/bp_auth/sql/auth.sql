@@ -1,0 +1,1 @@
+SELECT login, password, role FROM internal_user JOIN role USING(r_id) WHERE login=(%s);

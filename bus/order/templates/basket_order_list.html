@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+<div align = center>
+    <br><br>
+    <a href="{{ url_for('blueprint_order.save_schedule') }}">Сформировать расписание</a> <br><br>
+    <a href="{{ url_for('blueprint_order.exit') }}">Главное меню</a>
+</div>
+
+{% import 'basket_utils.html' as utils %}
+<p>Необходимо назначить водителей: {{count}} </p>
+<p>Назначено водителей: {{count2}} </p>
+<div class="container">
+  <div class="row">
+  <div class="col-md-8">
+      <h2>Водители для назначения на маршрут</h2>
+      {% if items %}
+      {% for item in items %}
+      {% if not item['free'] %}
+       {{ utils.render_item(item, None,routes, show_form_add = True, show_form_sub = False) }}
+      {% endif %}
+      {% endfor %}
+      {% else %}
+        <p>Нет доступных водителей</p>
+      {% endif %}
+  </div>
+  <div class="col-md-4">
+      <h2 style="color:blue">Выбранные водители</h2>
+      <a style='color:green' href="{{ url_for('blueprint_order.clear_basket') }}">Очистить выбор</a>
+      {% if basket %}
+      {% for key in basket %}
+      {{ utils.render_item(basket[key],key,routes, show_form_add = False, show_form_sub = True) }}
+      {% endfor %}
+      {% else %}
+        <p>Нет назначенных водителей</p>
+      {% endif %}
+  </div>
+  </div>
+</div>
+</body>
+</html>

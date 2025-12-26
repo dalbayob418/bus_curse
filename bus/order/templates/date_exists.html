@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NotFound</title>
+</head>
+<body>
+<center>
+    <h2>На дату {{date}} уже составлено расписание!</h2>
+    <br><br>
+    <a href="{{ url_for('blueprint_order.date_index') }}">Выбрать другую дату</a>
+    <br><br>
+    <a href="{{ url_for('blueprint_order.exit') }}">В главное меню</a>
+
+</center>
+</body>
+</html>
